@@ -1,18 +1,24 @@
 import { useFormContext } from "react-hook-form";
 import { HotelFormData } from "./ManageHotelForm";
+import { useLocation } from 'react-router-dom'
+
 
 const DetailsSection = () => {
   const {
     register,
     formState: { errors },
   } = useFormContext<HotelFormData>();
+  const location = useLocation();
+  
+  const page=location.pathname.substring(1,5);
+  const title= (page==='edit')?'Update':'Add';
 
   return (
     <div className="flex flex-col gap-4">
-      <h1 className="text-3xl font-bold mb-3">Add Hotel</h1>
+      <h1 className="text-3xl font-bold mb-3">{title} Hotel</h1>
 
       <label className="text-gray-700 text-sm font-bold flex-1">
-        Name
+        Hotel Name
         <input
           type="text"
           className="border rounded w-full py-1 px-2 font-normal"
