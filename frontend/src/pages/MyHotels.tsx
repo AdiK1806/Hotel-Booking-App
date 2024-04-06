@@ -16,12 +16,14 @@ const MyHotels = () => {
 
   if (!hotelData?.length) {
 
-    return <MyHotelsHeader> <span>No Hotels found</span> </MyHotelsHeader>;
+    return <div className="space-y-5 px-16">
+       <MyHotelsHeader> <div className="my-10 text-xl font-bolder"> No Hotels Found!</div> </MyHotelsHeader>
+      </div>;
   }
   
 
   return (
-    <div className="space-y-5">
+    <div className="space-y-5 px-16">
 
     
 
@@ -70,7 +72,7 @@ const MyHotels = () => {
             <span className="flex justify-end">
               <Link
                 to={`/edit-hotel/${hotel._id}`}
-                className="flex bg-blue-600 text-white text-xl font-bold p-2 hover:bg-blue-500"
+                className="flex bg-blue-600 text-white text-xl font-bold p-2 hover:bg-blue-500 rounded"
               >
                 View Details
               </Link>
