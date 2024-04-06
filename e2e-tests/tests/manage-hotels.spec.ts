@@ -29,7 +29,7 @@ test("should allow user to add a hotel", async ({ page }) => {
   await page.locator('[name="country"]').fill("Test Country");
   await page
     .locator('[name="description"]')
-    .fill("This is a description for the Test Hotel");
+    .fill("This is a description for the New Hotel");
   await page.locator('[name="pricePerNight"]').fill("100");
   await page.selectOption('select[name="starRating"]', "3");
 
@@ -53,22 +53,24 @@ test("should allow user to add a hotel", async ({ page }) => {
 
 
 
-// test("should display hotels", async ({ page }) => {
-//   await page.goto(`${UI_URL}my-hotels`);
+test("should display hotels", async ({ page }) => {
+  await page.goto(`${UI_URL}my-hotels`);
 
-//   await expect(page.getByText("Dublin Getaways")).toBeVisible();
-//   await expect(page.getByText("Lorem ipsum dolor sit amet")).toBeVisible();
-//   await expect(page.getByText("Dublin, Ireland")).toBeVisible();
-//   await expect(page.getByText("All Inclusive")).toBeVisible();
-//   await expect(page.getByText("£119 per night")).toBeVisible();
-//   await expect(page.getByText("2 adults, 3 children")).toBeVisible();
-//   await expect(page.getByText("2 Star Rating")).toBeVisible();
+  await expect(page.getByText("MyHotel").first()).toBeVisible();
+  await expect(page.getByText("This is a description for the ").first()).toBeVisible();
+  await expect(page.getByText("Shimla, HP").first()).toBeVisible();
+  await expect(page.getByText("Luxury").first()).toBeVisible();
+  await expect(page.getByText("₹ 11110/Night").first()).toBeVisible();
+  await expect(page.getByText("Adults: 3 Children: 3").first()).toBeVisible();
+  await expect(page.getByText("Rating: 5 Star").first()).toBeVisible();
 
-//   await expect(
-//     page.getByRole("link", { name: "View Details" }).first()
-//   ).toBeVisible();
-//   await expect(page.getByRole("link", { name: "Add Hotel" })).toBeVisible();
-// });
+  await expect(page.getByRole("link", { name: "View Details" }).first()).toBeVisible();
+
+  await expect(page.getByRole("link", { name: "Add Hotel" })).toBeVisible();
+});
+
+
+
 
 // test("should edit hotel", async ({ page }) => {
 //   await page.goto(`${UI_URL}my-hotels`);
