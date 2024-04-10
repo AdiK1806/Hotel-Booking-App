@@ -9,6 +9,7 @@ import { HotelType } from "../shared/types";
 const router = express.Router();
 
 const storage = multer.memoryStorage();
+
 const upload = multer({
   storage: storage,
   limits: {
@@ -59,7 +60,7 @@ router.post(
 
 router.get("/", verifyToken, async (req: Request, res: Response) => {
   try {
-    const hotels = await Hotel.find({ userId: req.userId });
+    const hotels = (await Hotel.find({ userId: req.userId })).reverse();
     res.json(hotels);
   } catch (error) {
     res.status(500).json({ message: "Error fetching hotels" });

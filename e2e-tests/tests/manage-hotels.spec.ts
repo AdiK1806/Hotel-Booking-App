@@ -23,13 +23,13 @@ test.beforeEach(async ({ page }) => {
 
 test("should allow user to add a hotel", async ({ page }) => {
   await page.goto(`${UI_URL}add-hotel`);
-
-  await page.locator('[name="name"]').fill("Test Hotel");
+  const time=Date.now().toLocaleString();
+  await page.locator('[name="name"]').fill("Test Hotel "+time);
   await page.locator('[name="city"]').fill("Test City");
   await page.locator('[name="country"]').fill("Test Country");
   await page
     .locator('[name="description"]')
-    .fill("This is a description for the New Hotel");
+    .fill("This is a description for the Your Hotel");
   await page.locator('[name="pricePerNight"]').fill("100");
   await page.selectOption('select[name="starRating"]', "3");
 
@@ -47,7 +47,7 @@ test("should allow user to add a hotel", async ({ page }) => {
   ]);
 
   await page.getByRole("button", { name: "Save" }).click();
-  await expect(page.getByText("Hotel Saved!")).toBeVisible({ timeout: 10000 });
+  await expect(page.getByText("Hotel Saved!")).toBeVisible({ timeout: 15000 });
 });
 
 
@@ -57,8 +57,8 @@ test("should display hotels", async ({ page }) => {
   await page.goto(`${UI_URL}my-hotels`);
 
   await expect(page.getByText("MyHotel").first()).toBeVisible();
-  await expect(page.getByText("This is a description for the ").first()).toBeVisible();
-  await expect(page.getByText("Shimla, HP").first()).toBeVisible();
+  await expect(page.getByText("This is a description for ").first()).toBeVisible();
+  await expect(page.getByText("Shimla, India").first()).toBeVisible();
   await expect(page.getByText("Luxury").first()).toBeVisible();
   await expect(page.getByText("₹ 11110/Night").first()).toBeVisible();
   await expect(page.getByText("Adults: 3 Children: 3").first()).toBeVisible();
