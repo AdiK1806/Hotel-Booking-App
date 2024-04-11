@@ -35,19 +35,28 @@ const SignIn=()=>{
         <form  className="flex flex-col gap-5 px-16" onSubmit={onSubmit}>
             <h2 className="text-3xl font-bold">Sign In</h2>
 
-            <label className="text-gray-700 text-sm font-bold flex-1">
-                    Email
-                    <input type="email" className="border rounded w-full py-1 px-2 font-normal"
+            <div className="font-medium ml-10">
+                TestEmail: <span className="bg-green-100 font-bold m-10">testUser@email.com</span> <br/>
+                TestPassword: <span className="bg-green-100 font-bold m-3">123456</span>
+            </div>
+
+            
+
+
+            <label className="text-gray-700 text-lg font-bold flex-1">
+                    Email       
+                    <input type="email" className="border rounded w-full py-1 px-2 font-normal mt-2"
                     {...register("email",{required:"This field is required"})}>
                     </input>
                     {errors.email && (<span className="text-red-500">
                         {errors.email.message}
                     </span>)}
-                </label>
+            </label>
 
-            <label className="text-gray-700 text-sm font-bold flex-1">
+
+            <label className="text-gray-700 text-lg font-bold flex-1">
                     Password
-                    <input type="password" className="border rounded w-full py-1 px-2 font-normal"
+                    <input type="password" className="border rounded w-full py-1 px-2 font-normal mt-2"
                         {...register("password",{required:"This field is required",
                                                 minLength:{value:6,message:"Password must be atleast 6 characters long"}
                                                 }
@@ -58,7 +67,7 @@ const SignIn=()=>{
                     {errors.password && (<span className="text-red-500">
                         {errors.password.message}
                     </span>)}
-                </label>  
+            </label>  
 
                 <span className="flex items-center justify-between"> 
 
