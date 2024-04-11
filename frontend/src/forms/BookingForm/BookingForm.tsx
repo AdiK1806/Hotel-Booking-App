@@ -29,7 +29,7 @@ const BookingForm=({currentUser,paymentIntent}:Props)=>{
     const elements=useElements();
     const search=useSearchContext();
     const {hotelId}=useParams();
-    const {showToast,isLoggedIn}=useAppContext();
+    const {showToast}=useAppContext();
 
     const {mutate:bookRoom,isLoading}=useMutation(apiClient.createRoomBooking,{
         onSuccess:()=>{
