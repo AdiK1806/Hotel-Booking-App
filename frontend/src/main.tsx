@@ -14,7 +14,7 @@ const queryClient=new QueryClient({
   }
 });
 
-
+alert("Test Credentials are added to signup page incase you don't wish to register")
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>

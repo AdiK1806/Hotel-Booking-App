@@ -8,7 +8,6 @@ type SearchContext = {
     childCount: number;
     hotelId: string;
     saveSearchValues: (destination: string,checkIn: Date,checkOut: Date,adultCount: number,childCount: number) => void;
-
   };
   
   const SearchContext=createContext<SearchContext | undefined>(undefined);
@@ -27,8 +26,7 @@ type SearchContext = {
     const [hotelId,setHotelId]=useState<string>("");
 
 
-    function saveSearchValues
-    (destination: string,checkIn: Date,checkOut: Date,adultCount: number,childCount: number,hotelId?:string){
+    function saveSearchValues(destination: string,checkIn: Date,checkOut: Date,adultCount: number,childCount: number,hotelId?:string){
 
         setDestination(destination);
         setCheckIn(checkIn);
@@ -39,9 +37,8 @@ type SearchContext = {
         if(hotelId){
             setHotelId(hotelId);
         }
-        
-
     }
+
 
     return (
         <SearchContext.Provider 

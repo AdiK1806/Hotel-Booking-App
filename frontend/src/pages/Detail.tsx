@@ -30,7 +30,9 @@ const Detail = () => {
             <AiFillStar key={Math.random()*100*Math.random()} className="fill-yellow-400" />
           ))}
         </span>
-        <h1 className="text-3xl font-bold">{hotel.name}</h1>
+
+        <h1 className="text-3xl font-bold mt-3">{hotel.name}</h1>
+        <div className="text-l font-semibold">{hotel.city}, {hotel.country}</div>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">

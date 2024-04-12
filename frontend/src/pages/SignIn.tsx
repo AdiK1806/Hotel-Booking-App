@@ -36,8 +36,8 @@ const SignIn=()=>{
             <h2 className="text-3xl font-bold">Sign In</h2>
 
             <div className="font-medium ml-10">
-                TestEmail: <span className="bg-green-100 font-bold m-10">testUser@email.com</span> <br/>
-                TestPassword: <span className="bg-green-100 font-bold m-3">123456</span>
+                TestEmail: <span className="bg-green-100 font-bold m-10">testUser01@email.com</span> <br/>
+                TestPassword: <span className="bg-green-100 font-bold m-3">asd#123$</span>
             </div>
 
             

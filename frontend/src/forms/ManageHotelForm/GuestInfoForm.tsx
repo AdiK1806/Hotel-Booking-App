@@ -76,7 +76,12 @@ const GuestInfoForm=({hotelId,pricePerNight}:Props)=>{
                     <DatePicker
                     required
                     selected={checkIn}
-                    onChange={(date) => setValue("checkIn", date as Date)}
+                    onChange={(date) => {
+                        setValue("checkIn", date as Date)
+                        if(date && date>checkOut)setValue("checkOut",date as Date);
+                    }
+
+                    }
                     selectsStart
                     startDate={checkIn}
                     endDate={checkOut}
@@ -85,6 +90,7 @@ const GuestInfoForm=({hotelId,pricePerNight}:Props)=>{
                     placeholderText="Check-in Date"
                     className="min-w-full bg-white p-2 focus:outline-none"
                     wrapperClassName="min-w-full"
+                    dateFormat='dd-MM-yyyy'
                     />
                 </div>
                 <div>
@@ -95,11 +101,12 @@ const GuestInfoForm=({hotelId,pricePerNight}:Props)=>{
                     selectsStart
                     startDate={checkIn}
                     endDate={checkOut}
-                    minDate={minDate}
+                    minDate={checkIn}
                     maxDate={maxDate}
                     placeholderText="Check-out Date"
                     className="min-w-full bg-white p-2 focus:outline-none"
                     wrapperClassName="min-w-full"
+                    dateFormat='dd-MM-yyyy'
                     />
                 </div>
 

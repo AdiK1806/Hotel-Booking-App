@@ -12,6 +12,8 @@ const MyBookings = () => {
     if (!hotels || hotels.length === 0) {
         return <span>No Bookings Found</span>;
     }
+    console.log(hotels);
+    
 
     return (
         <div className="space-y-5">
@@ -35,7 +37,7 @@ const MyBookings = () => {
                         </div>
 
                         {hotel.bookings.map((booking) => (
-                            <div className="bg-blue-100 w-1/3 rounded-lg p-2">
+                            <div className=" w-2/3 rounded-lg p-2">
                                 <div >
                                     <span className="font-bold mr-2">Dates: </span>
                                     <span>
@@ -47,14 +49,14 @@ const MyBookings = () => {
                                 <div>
                                     <span className="font-bold mr-2">Guests:</span>
                                     <span>
-                                        {booking.adultCount} adults, {booking.childCount} children
+                                        Adults: {booking.adultCount} , Children: {booking.childCount} 
                                     </span>
                                 </div>
                             </div>
                         ))}
                     </div>
                 </div>
-            ))}
+            )).reverse()}
         </div>
     );
 };
