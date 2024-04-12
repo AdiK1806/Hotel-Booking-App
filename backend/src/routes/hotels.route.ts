@@ -5,6 +5,7 @@ import { param, validationResult } from "express-validator";
 import verifyToken from "../middleware/auth.middleware";
 import Stripe from "stripe";
 import User from "../models/user.model";
+import { log } from "console";
 
 
 
@@ -68,6 +69,16 @@ router.get("/", async (req: Request, res: Response) => {
   }
 });
 
+router.get("/", async (req: Request, res: Response) => {
+  try {
+    const hotels = await Hotel.find().sort("-lastUpdated");
+    res.json(hotels);
+  } catch (error) {
+    console.log("error", error);
+    res.status(500).json({ message: "Error Fetching Hotels" });
+  }
+});
+
 
 router.get("/:id",[
   param("id").notEmpty().withMessage("Hotel ID is required")
@@ -90,12 +101,10 @@ async(req:Request,res:Response)=>{
 
 
 router.post("/:hotelId/bookings/payment-intent",verifyToken,async(req:Request,res:Response)=>{
+
   const { numberOfNights } = req.body;
   const hotelId = req.params.hotelId;
   const hotel = await Hotel.findById(hotelId);
-  const userId=req.userId;
-  const user=await User.findById(userId);
-  console.log(user);
   
   if (!hotel) {
     return res.status(400).json({ message: "Hotel not found" });
@@ -136,10 +145,7 @@ router.post("/:hotelId/bookings/payment-intent",verifyToken,async(req:Request,re
   };
   res.send(response)
 
-}
-);
-
-
+});
 
 
 
@@ -153,16 +159,15 @@ router.post("/:hotelId/bookings",verifyToken,async(req:Request,res:Response)=>{
       );
 
       if (!paymentIntent) {
-        
+       
         return res.status(400).json({ message: "payment intent not found" });
       }
 
       if (
-        
         paymentIntent.metadata.hotelId !== req.params.hotelId ||
         paymentIntent.metadata.userId !== req.userId
       ) {
-        
+      
         return res.status(400).json({ message: "payment intent mismatch" });
       }
 
@@ -177,7 +182,8 @@ router.post("/:hotelId/bookings",verifyToken,async(req:Request,res:Response)=>{
         ...req.body,
         userId: req.userId,
       };
-
+      
+      
       const hotel = await Hotel.findOneAndUpdate(
         { _id: req.params.hotelId },
         {
@@ -191,7 +197,9 @@ router.post("/:hotelId/bookings",verifyToken,async(req:Request,res:Response)=>{
       }
 
       await hotel.save();
+     
       res.status(200).send(); 
+      
   } catch (error) {
     
     res.status(500).json({message:"Something went wrong"});

@@ -9,6 +9,8 @@ import cookieParser from "cookie-parser";
 import path from "path";
 import {v2 as cloudinary} from 'cloudinary';
 import hotelRoutes from './routes/hotels.route'
+import bookingRoutes from './routes/my-bookings.route'
+
 
 //CLOUDINARY CONNECTION
 cloudinary.config({
@@ -20,9 +22,6 @@ cloudinary.config({
 
 // DB CONNECTION
 mongoose.connect(process.env.MONGODB_CONNECTION_STRING as string);
-
-
-
 
 
 // BACKEND SETUP
@@ -44,6 +43,7 @@ app.use("/api/auth",authRoutes);
 app.use("/api/users",userRoutes);
 app.use("/api/my-hotels",myHotelRoutes);
 app.use("/api/hotels",hotelRoutes);
+app.use("/api/my-bookings",bookingRoutes);
 
 
 app.get("*", (req: Request, res: Response) => {
