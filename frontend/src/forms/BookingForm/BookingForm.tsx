@@ -3,7 +3,7 @@ import { PaymentIntentResponse, UserType } from "../../../../backend/src/shared/
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { StripeCardElement } from "@stripe/stripe-js";
 import { useSearchContext } from "../../contexts/SearchContext";
-import { Navigate, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useMutation } from "react-query";
 import * as apiClient from "../../api-client"
 import { useAppContext } from "../../contexts/AppContext";
