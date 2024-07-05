@@ -6,7 +6,7 @@ Password: &nbsp;asd#123$ </br>
 
 
 # StayEase-Hotel Booking App
-Welcome to StayEase hotel booking website built using the MERN stack! This web application is designed to provide users with a seamless experience in finding, booking, and managing their hotel stays. Built using the MERN (MongoDB, Express.js, React.js, Node.js) stack, our platform offers a comprehensive set of features to both hotel owners and guests.
+The website is built using the MERN stack! This web application allows users to find, book, and manage their hotel stays and offers a comprehensive set of features to both hotel owners and guests.
 
 ## Table of Contents
 - [Features](#features)
