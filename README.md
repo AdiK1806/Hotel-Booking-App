@@ -3,7 +3,7 @@ Live Link: [StayEase](https://mern-booking-app-hxcp.onrender.com/)</br>
 Email: &ensp;&emsp; testUser01@email.com </br>
 Password: &nbsp;asd#123$ </br>
 </br>Test Payment Card(for Indian users):&emsp; 4000 0035 6000 0008</br>
-For other country users, get test card for your country from https://docs.stripe.com/testing?testing-method=card-numbers 
+
 
 # StayEase-Hotel Booking App
 Welcome to StayEase hotel booking website built using the MERN stack! This web application is designed to provide users with a seamless experience in finding, booking, and managing their hotel stays. Built using the MERN (MongoDB, Express.js, React.js, Node.js) stack, our platform offers a comprehensive set of features to both hotel owners and guests.
