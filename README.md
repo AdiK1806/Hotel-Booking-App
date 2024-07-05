@@ -15,13 +15,13 @@ The website is built using the MERN stack! This web application allows users to 
 
 
 ## Features
-1. **User Authentication:** Users can register and login to access the booking features.
-2. **User Authorization:** Only logged in users can book hotels and view their hotel listings and bookings (if any).
-3. **Payment integration:** Users can book hotels by making payments securely through third-party Stripe integration. 
-4. **Search Functionality:** Users can search for hotels based on various destinations and guest (adult/children) count.
-5. **Sort and Filter Options:** Users can apply sorting and filter options like star rating, facilities, price etc. to refine search choices.
-6. **Add/Edit Hotels:** Users can add new hotels and edit their listed hotels.
-7. **End to end testing:** End to end tests have been performed using Playwright to ensure smooth working of the application.
+- **User Authentication:** Users can register and login to access the booking features.
+- **User Authorization:** Only logged in users can book hotels and view their hotel listings and bookings (if any).
+- **Payment integration:** Users can book hotels by making payments securely through third-party Stripe integration. 
+- **Search Functionality:** Users can search for hotels based on various destinations and guest (adult/children) count.
+- **Sort and Filter Options:** Users can apply sorting and filter options like star rating, facilities, price etc. to refine search choices.
+-  **Add/Edit Hotels:** Users can add new hotels and edit their listed hotels.
+- **End to end testing:** End to end tests have been performed using Playwright to ensure smooth working of the application.
 
 
 ## Technologies Used
