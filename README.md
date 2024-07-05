@@ -9,8 +9,8 @@ Password: &nbsp;asd#123$ </br>
 The website is built using the MERN stack! This web application allows users to find, book, and manage their hotel stays and offers a comprehensive set of features to both hotel owners and guests.
 
 ## Table of Contents
-- [Features](#features)
-- [Technologies Used](#technologies-used)
+1. [Features](#features)
+2. [Technologies Used](#technologies-used)
 
 
 
